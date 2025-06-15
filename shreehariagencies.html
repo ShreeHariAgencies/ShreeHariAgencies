@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Hari Agencies - India's Premier Supply Chain Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2e86c1;
+            --accent-color: #f39c12;
+            --text-color: #333;
+            --light-color: #f5f5f5;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .company-heading {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .company-subheading {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .custom-image-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .custom-image-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .custom-image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        
+        nav {
+            background-color: var(--dark-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .nav-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 20px;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .business-model {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .model-step {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .model-step:nth-child(odd) {
+            animation: slideUp 0.8s ease forwards;
+        }
+        
+        .model-step:nth-child(even) {
+            animation: slideUp 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .model-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .model-step p {
+            color: #666;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn:hover {
+            background-color: #e67e22;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Social Media Buttons */
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--dark-color);
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            margin: 0 1rem;
+        }
+        
+        .social-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        .yt-button {
+            background-color: #FF0000;
+        }
+        
+        .yt-button:hover {
+            background-color: #CC0000;
+        }
+        
+        .instagram-button {
+            background-color: #E1306C;
+        }
+        
+        .instagram-button:hover {
+            background-color: #C13584;
+        }
+        
+        .facebook-button {
+            background-color: #3b5998;
+        }
+        
+        .facebook-button:hover {
+            background-color: #2d4373;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .company-heading {
+                font-size: 3rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--dark-color);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .business-model {
+                flex-direction: column;
+            }
+            
+            .model-step {
+                margin-bottom: 1.5rem;
+            }
+            
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="company-heading">Shree Hari Agencies</h1>
+            <p class="company-subheading">A Service That Makes A Difference</p>
+            <div class="custom-image-box">
+                <img src="C:\Users\Naitik Dutia\Downloads\SHA LOGO UPDATED-Picsart-AiImageEnhancer.png" alt="Shree Hari Agencies Logo" onerror="this.src='https://via.placeholder.com/300x200'">
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">Shree Hari Agencies</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#business-model">Business Model</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    
+    <main>
+        <section id="about" class="section">
+            <h2 class="section-title">About Shree Hari Agencies</h2>
+            <p>Shree Hari Agencies is a leading commission-based agency that connects India's largest retail stores with the best suppliers in Mumbai. With years of experience in the supply chain and logistics industry, we have built a reputation for excellence, reliability, and efficiency.</p>
+            <p>Our team of dedicated professionals works tirelessly to ensure that our clients receive the best products at competitive prices, while maintaining the highest standards of quality and service. We pride ourselves on our ability to understand the unique needs of each client and provide customized solutions that drive business growth.</p>
+        </section>
+        
+        <section id="business-model" class="section">
+            <h2 class="section-title">Our Business Model</h2>
+            <p>Shree Hari Agencies operates as a strategic intermediary between India's largest retail stores and top-tier suppliers in Mumbai. Our business model is designed to create a win-win situation for all parties involved, ensuring efficiency, quality, and competitive pricing.</p>
+            
+            <div class="business-model">
+                <div class="model-step">
+                    <div class="step-number">1</div>
+                    <h3>Connecting Retailers</h3>
+                    <p>We partner with large retail stores across India, understanding their specific product requirements, quality standards, and delivery expectations.</p>
+                </div>
+                
+                <div class="model-step">
+                    <div class="step-number">2</div>
+                    <h3>Supplier Identification</h3>
+                    <p>Our team identifies and vets the best suppliers in Mumbai who can meet the retailers' requirements in terms of quality, quantity, and timeline.</p>
+                </div>
+                
+                <div class="model-step">
+                    <div class="step-number">3</div>
+                    <h3>Negotiation & Coordination</h3>
+                    <p>We handle all negotiations regarding pricing, terms, and conditions, while coordinating logistics to ensure smooth operations.</p>
+                </div>
+                
+                <div class="model-step">
+                    <div class="step-number">4</div>
+                    <h3>Quality Assurance</h3>
+                    <p>Our quality control team ensures that all products meet the agreed standards before they are shipped to the retail stores.</p>
+                </div>
+                
+                <div class="model-step">
+                    <div class="step-number">5</div>
+                    <h3>Commission-Based Service</h3>
+                    <p>We operate on a commission basis, earning our revenue based on successful transactions, which aligns our interests with those of our clients.</p>
+                </div>
+                
+                <div class="model-step">
+                    <div class="step-number">6</div>
+                    <h3>Continuous Improvement</h3>
+                    <p>Regularly review our processes and relationships to identify opportunities for improvement and innovation in the supply chain.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="services" class="section">
+            <h2 class="section-title">Our Services</h2>
+            <p>At Shree Hari Agencies, we offer a comprehensive range of services designed to streamline the supply chain process for our clients.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Supplier Matching</h3>
+                    <p>We match retailers with the most suitable suppliers based on their specific requirements, ensuring optimal quality and pricing.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Logistics Coordination</h3>
+                    <p>We manage the entire logistics process, from sourcing to delivery, ensuring timely and efficient transportation of goods.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Quality Control</h3>
+                    <p>Our dedicated quality assurance team ensures that all products meet the agreed standards before they reach our clients.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Market Analysis</h3>
+                    <p>Provide regular market analysis and insights to help our clients make informed decisions about their product sourcing.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Relationship Management</h3>
+                    <p> Maintain strong relationships with both retailers and suppliers, acting as a reliable bridge between them.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Cost Optimization</h3>
+                    <p>Work to optimize costs throughout the supply chain, helping our clients maximize their profit margins.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Ready to Streamline Your Supply Chain?</h2>
+            <p>Partner with Shree Hari Agencies and experience the difference that a professional, commission-based supply chain solution can make to your business.</p>
+            <a href="#contact" class="cta-btn">Get in Touch</a>
+        </section>
+        
+        <section id="contact" class="section">
+            <h2 class="section-title">Contact Us</h2>
+            <p>For more information about our services or to discuss how we can help your business, please reach out to us using the contact details below:</p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+                <div style="flex: 1; min-width: 250px;">
+                    <h3 style="color: var(--primary-color);margin-bottom: 1rem;">Our Office</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--secondary-color);"></i>Flat No. 102-A, 1st Floor, Vinayak Darshan CHS Ltd., C.T.S. No. 2001, Dadi Seth Agiyari Lane, 9/11 Navi Wadi, Mumbai - 400 002.</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px; color: var(--secondary-color);"></i> shreehariagencies12@gmail.com</p>
+                    <p><i class="fas fa-globe" style="margin-right: 10px; color: var(--secondary-color);"></i> GST No.: 27AJFPD3183M1Z1</p>
+                    <p><i class="fas fa-user" style="margin-right: 10px; color: var(--secondary-color);"></i> Pratik Dutia: +91 84338 12222</p>
+                </div>
+            </div>
+            
+            <!-- Social Media Buttons -->
+            <div class="social-buttons" style="margin-top: 2rem;">
+                <a href="https://www.youtube.com/@shreehariagencies" target="_blank" class="social-button yt-button">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="https://www.instagram.com/shreehariagencies12?igsh=dHcwNjFuNjlzenh1" target="_blank" class="social-button instagram-button">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.facebook.com/share/CcUppCCRZ/" target="_blank" class="social-button facebook-button">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#business-model">Business Model</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <p class="copyright">© 2023 Shree Hari Agencies. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        document.querySelectorAll('.model-step').forEach((step, index) => {
+            step.classList.add('animate-on-scroll');
+            step.style.animationDelay = `${0.2 + index * 0.1}s`;
+            observer.observe(step);
+        });
+        
+        document.querySelectorAll('.service-card').forEach((card, index) => {
+            card.classList.add('animate-on-scroll');
+            card.style.animationDelay = `${0.2 + index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
